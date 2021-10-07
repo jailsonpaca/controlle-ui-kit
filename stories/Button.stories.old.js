@@ -1,5 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { withKnobs, boolean, select, text } from "@storybook/addon-knobs";
 
 import { Button, Text } from "../src/Components";
@@ -8,7 +9,10 @@ import { COLORS } from "../src/styles";
 storiesOf("Button", module)
   .addDecorator(withKnobs)
   .add("Primary", () => (
-    <Button.Primary disabled={boolean("disabled", false)}>
+    <Button.Primary
+      disabled={boolean("disabled", false)}
+      onClick={action("clicked")}
+    >
       <Text.Regular size={14} color={COLORS.white}>
         {text("children", "Small button")}
       </Text.Regular>

@@ -20,6 +20,7 @@ function withGlobalStyles(storyFn) {
 addParameters({
   options: {
     theme,
+    showPanel: true,
   },
 });
 

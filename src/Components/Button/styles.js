@@ -1,35 +1,32 @@
-import { COLORS } from 'styles';
+import { COLORS } from "styles";
 
 export default {
-    transparent: {
-        borderColor: 'transparent',
-        backgroundColor: 'transparent',
-    },
-    noBorder: {
-        borderColor: 'transparent',
-    },
-    whiteBorder: {
-        borderColor: COLORS.white,
-    },
-    primaryBg: {
-        backgroundColor: COLORS.primary,
-    },
-    redBg: {
-        backgroundColor: COLORS.red,
-    },
-    greenBg: {
-        backgroundColor: COLORS.green,
-    },
-    darkBlueGreyBg: {
-        backgroundColor: COLORS.darkBlueGrey,
-    },
-    blueGreyBg: {
-        backgroundColor: COLORS.blueGrey,
-    },
-    greenAddBg: {
-        backgroundColor: COLORS.greenAdd,
-    },
-    darkGreyBatchBg: {
-        backgroundColor: COLORS.darkGreyBatch,
-    },
+  transparent: {
+    borderColor: "transparent",
+    backgroundColor: "transparent",
+  },
+  disabled: {
+    opacity: 0.2,
+  },
+  noBorder: {
+    borderColor: "transparent",
+  },
+  whiteBorder: {
+    borderColor: COLORS.white,
+  },
+  greenBg: {
+    backgroundColor: COLORS.green,
+  },
+  primaryBg: {
+    backgroundColor: COLORS.primary,
+  },
+  greyBg: {
+    backgroundColor: COLORS.darkBlueGrey,
+  },
+  redBg: {
+    backgroundColor: COLORS.red,
+  },
+  orangeBg: {
+    backgroundColor: COLORS.orange,
+  },
 };

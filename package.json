@@ -12,7 +12,6 @@
     "chromatic": "npx chromatic --project-token=eb5ef3f9fdc4"
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^6.3.1",
     "antd": "^4.16.13",
     "feather-icons-react": "^0.4.3",
     "history": "^5.0.0",
@@ -22,8 +21,12 @@
     "victory": "^36.0.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.3.10",
     "@storybook/addon-centered": "^5.3.21",
+    "@storybook/addon-controls": "^6.3.10",
     "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-knobs": "^6.3.1",
+    "@storybook/addons": "^6.3.10",
     "@storybook/preset-ant-design": "0.0.2",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.0.0",

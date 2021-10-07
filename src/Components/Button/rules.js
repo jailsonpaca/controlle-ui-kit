@@ -1,8 +1,13 @@
-export const getClassName = (type) =>
-  `btnComponent ${(type === "link" || type === "text") && "btnText"}`;
+import styles from "./styles";
 
-export const getDefaultStyles = (type, style) => ({
+export const getClassName = (type, className) =>
+  `btnComponent ${
+    (type === "link" || type === "text") && "btnText"
+  } ${className}`;
+
+export const getDefaultStyles = (type, disabled, style) => ({
   ...((type === "link" || type === "text") && styles.transparent),
+  ...(disabled && styles.disabled),
   ...style,
 });
 

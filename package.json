@@ -7,11 +7,12 @@
   "homepage": "./",
   "scripts": {
     "storybook": "start-storybook -p 8080 -c .storybook watch-css -s ./src",
-    "build-storybook": "build-storybook -o ./docs -s ./src/Fonts",
+    "build-storybook": "build-storybook -s static -o public",
     "build": "tsc -p .",
     "chromatic": "npx chromatic --project-token=eb5ef3f9fdc4"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^6.3.1",
     "antd": "^4.16.13",
     "feather-icons-react": "^0.4.3",
     "history": "^5.0.0",

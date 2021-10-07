@@ -1,112 +1,81 @@
-import React from 'react';
-import { Button } from 'antd';
-import PropTypes from 'prop-types';
-import styles from './styles';
-import './styles.less';
+import React from "react";
+import { Button } from "antd";
+import PropTypes from "prop-types";
+import { getClassName, getDefaultStyles, getStyle } from "./rules";
+import styles from "./styles";
+import "./styles.less";
 
 const ButtonComponent = ({ children, type, style = {}, ...othersProps }) => (
-    <Button
-        className={`btnComponent ${(type === 'link' || type === 'text') && 'btnText'}`}
-        style={{
-            ...((type === 'link' || type === 'text') && styles.transparent),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </Button>
+  <Button
+    className={getClassName(type)}
+    style={getDefaultStyles(type, style)}
+    {...othersProps}
+  >
+    {children}
+  </Button>
 );
 
 const Primary = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.primaryBg),
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.primaryBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 const Red = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.redBg),
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.redBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 const Green = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.greenBg),
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.greenBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 const DarkBlueGrey = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.darkBlueGreyBg),
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.darkBlueGreyBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 const BlueGrey = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.blueGreyBg),
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.blueGreyBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 const Add = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.greenAddBg),
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.greenAddBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 const Dark = ({ children, type, style = {}, ...othersProps }) => (
-    <ButtonComponent
-        style={{
-            ...(type !== 'link' && type !== 'text' && styles.darkGreyBatchBg),
-            ...styles.whiteBorder,
-            ...((type === 'link' || type === 'text') && styles.noBorder),
-            ...style,
-        }}
-        {...othersProps}
-    >
-        {children}
-    </ButtonComponent>
+  <ButtonComponent
+    style={getStyle(type, styles.noBorder, styles.darkGreyBatchBg, style)}
+    {...othersProps}
+  >
+    {children}
+  </ButtonComponent>
 );
 
 ButtonComponent.Primary = Primary;
@@ -118,13 +87,17 @@ ButtonComponent.BlueGrey = BlueGrey;
 ButtonComponent.Dark = Dark;
 
 const ButtonProps = {
-    children: PropTypes.node.isRequired,
-    style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
-    type: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
+  type: PropTypes.string,
+  size: PropTypes.string,
 };
 
 ButtonComponent.defaultProps = {
-    style: {},
+  style: {},
+  size: "small",
 };
 
 ButtonComponent.propTypes = ButtonProps;

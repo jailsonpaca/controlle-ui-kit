@@ -1,0 +1,14 @@
+export { default as alelo } from './alelo.jpg';
+export { default as amex } from './amex.png';
+export { default as aura } from './aura.jpg';
+export { default as defaultflag } from './default.jpg';
+export { default as digio } from './digio.jpg';
+export { default as diners } from './diners.jpg';
+export { default as elo } from './elo.png';
+export { default as hipercard } from './hipercard.jpg';
+export { default as master } from './master.jpg';
+export { default as mastercard } from './mastercard.png';
+export { default as nubank } from './nubank.jpg';
+export { default as trigg } from './trigg.jpg';
+export { default as visa } from './visa.png';
+export * from './payment';

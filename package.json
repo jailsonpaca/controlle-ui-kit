@@ -7,7 +7,7 @@
   "homepage": "./",
   "scripts": {
     "storybook": "start-storybook -p 8080 -c .storybook watch-css -s ./src",
-    "build-storybook": "build-storybook -o ./public",
+    "build-storybook": "build-storybook -o ./docs -s ./src/Fonts",
     "build": "tsc -p .",
     "chromatic": "npx chromatic --project-token=eb5ef3f9fdc4"
   },

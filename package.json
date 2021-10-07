@@ -4,6 +4,7 @@
   "author": "Controlle",
   "main": "dist/index.js",
   "license": "MIT",
+  "homepage": "./",
   "scripts": {
     "storybook": "start-storybook -p 8080 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook -o ./public",

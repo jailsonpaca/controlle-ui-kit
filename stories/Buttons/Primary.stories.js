@@ -1,20 +1,12 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { withKnobs, boolean, select, text } from "@storybook/addon-knobs";
-
+import { text } from "@storybook/addon-knobs";
 import { Button, Text } from "../../src/Components";
-import { COLORS } from "../../src/styles";
+import { argTypes } from "./rules";
 
 export default {
   title: "Buttons/Primary",
   component: Button,
-  argTypes: {
-    disabled: {
-      options: [false, true],
-      control: { type: "radio" },
-    },
-  },
+  argTypes,
 };
 
 const Template = (args) => <Button.Primary {...args} />;
@@ -22,23 +14,21 @@ const Template = (args) => <Button.Primary {...args} />;
 export const Small = Template.bind({});
 
 Small.args = {
+  icon: "alert-circle",
+  loading: false,
   disabled: false,
   size: "small",
-  children: (
-    <Text.Regular size={14} color={COLORS.white}>
-      {text("children", "Small button")}
-    </Text.Regular>
-  ),
+  type: "contained",
+  children: text("children", "Small button"),
 };
 
 export const Big = Template.bind({});
 
 Big.args = {
+  icon: "alert-circle",
+  loading: false,
   disabled: false,
   size: "large",
-  children: (
-    <Text.Regular size={14} color={COLORS.white}>
-      Big button
-    </Text.Regular>
-  ),
+  type: "contained",
+  children: "Big button",
 };

@@ -15,9 +15,10 @@ const theme = {
   "btn-height-sm": "32px",
   "btn-height-lg": "35px",
   "btn-padding-horizontal-sm": "12px",
-  "btn-padding-horizontal-sm": "14px",
+  "btn-padding-horizontal-lg": "14px",
   "btn-border-style": "none",
   "btn-border-radius-sm": "4px",
+  "btn-disable-bg": "inherit",
   /* Menu */
   "menu-item-active-bg": COLORS.white,
   "menu-item-padding": 0,

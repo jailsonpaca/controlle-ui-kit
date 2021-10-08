@@ -1,76 +1,63 @@
 import React from "react";
-import { Button } from "antd";
 import PropTypes from "prop-types";
-import { getClassName, getDefaultStyles, getStyle } from "./rules";
-import styles from "./styles";
-import "./styles.less";
+import { Loading } from "./Loading";
+import {
+  GreenButton,
+  PrimaryButton,
+  RedButton,
+  GreyButton,
+  OrangeButton,
+  Button,
+  Icon,
+} from "./styles";
 
-const ButtonComponent = ({
-  children,
-  type,
-  style = {},
-  className,
-  disabled,
-  ...othersProps
-}) => (
-  <Button
-    className={getClassName(type, className)}
-    style={getDefaultStyles(type, disabled, style)}
-    disabled={disabled}
-    {...othersProps}
-  >
-    {children}
+const GetChild = ({ children, icon, loading, size, type }) => (
+  <React.Fragment>
+    {!!loading ? (
+      <Loading type={type} />
+    ) : (
+      <>
+        {!!icon && <Icon size={size} icon={icon} />}
+        {children}
+      </>
+    )}
+  </React.Fragment>
+);
+
+const ButtonComponent = ({ type, disabled, ...othersProps }) => (
+  <Button type={type} disabled={disabled} {...othersProps}>
+    <GetChild type={type} {...othersProps} />
   </Button>
 );
 
-const Green = ({ children, type, style = {}, ...othersProps }) => (
-  <ButtonComponent
-    style={getStyle(type, styles.noBorder, styles.greenBg, style)}
-    className="btnGreen"
-    {...othersProps}
-  >
-    {children}
-  </ButtonComponent>
+const Green = ({ type, ...othersProps }) => (
+  <GreenButton type={type} {...othersProps}>
+    <GetChild type={type} {...othersProps} />
+  </GreenButton>
 );
 
-const Primary = ({ children, type, style = {}, ...othersProps }) => (
-  <ButtonComponent
-    style={getStyle(type, styles.noBorder, styles.primaryBg, style)}
-    className="btnPrimary"
-    {...othersProps}
-  >
-    {children}
-  </ButtonComponent>
+const Primary = ({ type, ...othersProps }) => (
+  <PrimaryButton type={type} {...othersProps}>
+    <GetChild type={type} {...othersProps} />
+  </PrimaryButton>
 );
 
-const Red = ({ children, type, style = {}, ...othersProps }) => (
-  <ButtonComponent
-    style={getStyle(type, styles.noBorder, styles.redBg, style)}
-    className="btnRed"
-    {...othersProps}
-  >
-    {children}
-  </ButtonComponent>
+const Red = ({ type, ...othersProps }) => (
+  <RedButton type={type} {...othersProps}>
+    <GetChild type={type} {...othersProps} />
+  </RedButton>
 );
 
-const Grey = ({ children, type, style = {}, ...othersProps }) => (
-  <ButtonComponent
-    style={getStyle(type, styles.noBorder, styles.greyBg, style)}
-    className="btnGrey"
-    {...othersProps}
-  >
-    {children}
-  </ButtonComponent>
+const Grey = ({ type, ...othersProps }) => (
+  <GreyButton type={type} {...othersProps}>
+    <GetChild type={type} {...othersProps} />
+  </GreyButton>
 );
 
-const Orange = ({ children, type, style = {}, ...othersProps }) => (
-  <ButtonComponent
-    style={getStyle(type, styles.noBorder, styles.orangeBg, style)}
-    className="btnOrange"
-    {...othersProps}
-  >
-    {children}
-  </ButtonComponent>
+const Orange = ({ type, ...othersProps }) => (
+  <OrangeButton type={type} {...othersProps}>
+    <GetChild type={type} {...othersProps} />
+  </OrangeButton>
 );
 
 ButtonComponent.Green = Green;
@@ -86,12 +73,21 @@ const ButtonProps = {
   ),
   type: PropTypes.string,
   size: PropTypes.string,
+  icon: PropTypes.string,
 };
 
 ButtonComponent.defaultProps = {
   style: {},
   size: "small",
+  type: "contained",
+  icon: null,
 };
+
+Green.defaultProps = ButtonComponent.defaultProps;
+Primary.defaultProps = ButtonComponent.defaultProps;
+Grey.defaultProps = ButtonComponent.defaultProps;
+Red.defaultProps = ButtonComponent.defaultProps;
+Orange.defaultProps = ButtonComponent.defaultProps;
 
 ButtonComponent.propTypes = ButtonProps;
 Green.propTypes = ButtonProps;

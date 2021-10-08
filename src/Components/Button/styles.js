@@ -2,6 +2,7 @@ import { COLORS } from "styles";
 import { Button as AntdButton } from "antd";
 import FeatherIcon from "feather-icons-react";
 import styled from "styled-components";
+import { SEMI_BOLD } from "Components/Text/fonts";
 
 const isLinkOrText = ({ type }) => type === "link" || type === "text";
 
@@ -35,9 +36,7 @@ export const Button = styled(AntdButton).withConfig({
     }
     `};
   ${({ disabled }) => disabled && "opacity: 0.2;"}
-  span {
-    font-family: ProximaNovaSemiBold;
-  }
+  font-family: ${SEMI_BOLD} !important;
 `;
 
 export const GreenButton = styled(Button)`

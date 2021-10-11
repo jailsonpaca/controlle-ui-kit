@@ -1,7 +1,7 @@
 import { COLORS } from "styles";
+import styled from "styled-components";
 import { Button as AntdButton } from "antd";
 import FeatherIcon from "feather-icons-react";
-import styled from "styled-components";
 import { SEMI_BOLD } from "Components/Text/fonts";
 
 const isLinkOrText = ({ type }) => type === "link" || type === "text";
@@ -10,17 +10,28 @@ const isContained = ({ type }) => type === "contained";
 
 const isOutlined = ({ type }) => type === "outlined";
 
-export const Icon = styled(FeatherIcon)`
+export const Icon = styled(FeatherIcon).withConfig({
+  shouldForwardProp: (prop) => !["size"].includes(prop),
+})`
   ${({ size }) =>
     size === "small" ? "width:15px; height:15px;" : "width:18px; height:18px;"}
+  stroke-width:3px;
+`;
+
+export const Opacity = styled.div.withConfig({
+  shouldForwardProp: (prop) => !["loading"].includes(prop),
+})`
+  opacity: ${(props) => (props.loading ? 0 : 1)};
+  display: flex;
+  align-items: center;
+  gap: 6px;
 `;
 
 export const Button = styled(AntdButton).withConfig({
   shouldForwardProp: (prop) => !["icon", "loading"].includes(prop),
 })`
-  display: flex;
-  align-items: center;
-  gap: 7px;
+  position: relative;
+  border-radius: 4px;
   &.ant-btn:not(.ant-btn-text):hover,
   &.ant-btn:not(.ant-btn-text):focus {
     border-color: none;
@@ -37,6 +48,7 @@ export const Button = styled(AntdButton).withConfig({
     `};
   ${({ disabled }) => disabled && "opacity: 0.2;"}
   font-family: ${SEMI_BOLD} !important;
+  font-size: 14px;
 `;
 
 export const GreenButton = styled(Button)`
@@ -70,7 +82,7 @@ export const PrimaryButton = styled(Button)`
          &:hover {
             background-color: #0049da;
          }
-        color: ${COLORS.white};
+         color: ${COLORS.white};
       }`}
   ${(p) =>
     isOutlined(p) &&

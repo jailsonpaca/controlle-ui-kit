@@ -17,5 +17,5 @@ export default create({
   barBg: "#1b1a1f",
 
   brandTitle: "Controlle",
-  brandUrl: "https://controlle.com.br/",
+  brandUrl: "https://controlle.com/",
 });

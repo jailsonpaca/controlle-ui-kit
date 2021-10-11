@@ -1,6 +1,6 @@
 import React from "react";
 import { text } from "@storybook/addon-knobs";
-import { Button, Text } from "../../src/Components";
+import { Button } from "../../src/Components";
 import { argTypes } from "./rules";
 
 export default {

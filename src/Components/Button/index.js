@@ -7,20 +7,18 @@ import {
   RedButton,
   GreyButton,
   OrangeButton,
+  Opacity,
   Button,
   Icon,
 } from "./styles";
 
 const GetChild = ({ children, icon, loading, size, type }) => (
   <React.Fragment>
-    {!!loading ? (
-      <Loading type={type} />
-    ) : (
-      <>
-        {!!icon && <Icon size={size} icon={icon} />}
-        {children}
-      </>
-    )}
+    {!!loading && <Loading type={type} />}
+    <Opacity loading={!!loading}>
+      {!!icon && <Icon size={size} icon={icon} />}
+      {children}
+    </Opacity>
   </React.Fragment>
 );
 
@@ -78,8 +76,8 @@ const ButtonProps = {
 
 ButtonComponent.defaultProps = {
   style: {},
-  size: "small",
   type: "contained",
+  size: "small",
   icon: null,
 };
 

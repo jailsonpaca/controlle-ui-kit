@@ -12,6 +12,8 @@ export const Loading = (props) => (
 const isOutlined = ({ type }) => type === "outlined";
 
 const Spinner = styled.div`
+  position: absolute;
+  left: 30%;
   width: 100%;
   text-align: center;
   display: flex;

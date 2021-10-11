@@ -1,43 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Content, Text } from "Components";
+import { Content } from "Components";
 import { useNavigate } from "react-router-dom";
-import { Modal, Footer, Divider } from "./styles";
+import Header from "./header";
+import Footer from "./footer";
 import { getSizeByParam } from "./rules";
-import { ButtonSave, ButtonSecondary } from "./Buttons";
+import { Modal } from "./styles";
 
 const ModalComponent = ({
+  size,
   visible,
-  titleHeader,
   children,
-  onSecondary,
-  showDividerHeader,
-  showSecondary,
-  showSave,
-  showFooter,
-  showHeader,
   styleModal,
-  styleFooter,
-  styleHeader,
   styleContent,
-  styleButtonSave,
-  styleButtonSecondary,
-  typeButtonSave,
-  typeButtonSecondary,
-  titleButtonSave,
-  titleButtonSecondary,
   closable,
   modalProps,
   ...otherProps
 }) => {
   const navigate = useNavigate();
-  const handleSecondary = () => {
-    if (onSecondary) {
-      return onSecondary();
-    }
-
-    return navigate(-1);
-  };
 
   const handleBack = () => navigate(-1);
 
@@ -45,41 +25,10 @@ const ModalComponent = ({
     <Modal
       visible={visible}
       centered
-      footer={
-        showFooter && [
-          <Footer key={1} style={styleFooter}>
-            {showSave && (
-              <ButtonSave
-                key={1}
-                styleButtonSave={styleButtonSave}
-                typeButtonSave={typeButtonSave}
-                titleButtonSave={titleButtonSave}
-                {...otherProps}
-              />
-            )}
-            {showSecondary && (
-              <ButtonSecondary
-                key={2}
-                onSecondary={handleSecondary}
-                styleButtonSecondary={styleButtonSecondary}
-                typeButtonSecondary={typeButtonSecondary}
-                titleButtonSecondary={titleButtonSecondary}
-                {...otherProps}
-              />
-            )}
-          </Footer>,
-        ]
-      }
-      title={
-        showHeader && (
-          <div style={styleHeader}>
-            <Text.Bold size={20}>{titleHeader}</Text.Bold>
-            {showDividerHeader && <Divider />}
-          </div>
-        )
-      }
+      title={<Header {...otherProps} />}
+      footer={<Footer {...otherProps} />}
       onCancel={() => handleBack()}
-      width={getSizeByParam(otherProps).width}
+      width={getSizeByParam(size).width}
       style={styleModal}
       closable={closable}
       maskTransitionName=""

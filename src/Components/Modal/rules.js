@@ -1,4 +1,4 @@
-export const getSizeByParam = ({ size }) => {
+export const getSizeByParam = (size) => {
   switch (size) {
     case "small":
       return { width: 443 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
-import { Modal } from "../src/Components";
+import { Modal, Text } from "../src/Components";
 
 export default {
   title: "Modal",
@@ -9,24 +9,29 @@ export default {
 
 const Template = (args) => (
   <MemoryRouter>
-    <Modal {...args} />
+    <Modal {...args}>
+      <Text.Bold>Este é um modal</Text.Bold>
+    </Modal>
   </MemoryRouter>
 );
 
 export const Small = Template.bind({});
 
 Small.args = {
+  titleHeader: "Componente Modal",
   size: "small",
 };
 
 export const Medium = Template.bind({});
 
 Medium.args = {
+  titleHeader: "Componente Modal",
   size: "medium",
 };
 
 export const Large = Template.bind({});
 
 Large.args = {
+  titleHeader: "Componente Modal",
   size: "large",
 };

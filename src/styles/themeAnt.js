@@ -15,7 +15,7 @@ const theme = {
   "btn-height-sm": "32px",
   "btn-height-lg": "35px",
   "btn-padding-horizontal-sm": "12px",
-  "btn-padding-horizontal-lg": "12px",
+  "btn-padding-horizontal-lg": "14px",
   "btn-border-style": "none",
   "btn-border-radius-sm": "4px",
   "btn-border-radius-lg": "4px",
@@ -61,10 +61,10 @@ const theme = {
   "modal-content-bg": COLORS.white,
   "modal-header-border-style": "none",
   "modal-footer-border-style": "none",
-  "modal-header-padding": "35px 45px 11px 45px",
-  "modal-body-padding": "5px 23px 0px 23px",
-  "modal-footer-padding-vertical": "0",
-  "modal-footer-padding-horizontal": "46px",
+  "modal-header-padding": "0px",
+  "modal-body-padding": "0px 0px 0px 0px",
+  "modal-footer-padding-vertical": "0px",
+  "modal-footer-padding-horizontal": "0px",
 
   /* Table */
   "table-header-bg": COLORS.backgroundHover,

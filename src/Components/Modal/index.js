@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Modal } from "antd";
 import { Content, Text } from "Components";
 import { useNavigate } from "react-router-dom";
-import styles, { Footer, Divider } from "./styles";
+import { Modal, Footer, Divider } from "./styles";
 import { getSizeByParam } from "./rules";
-import { ButtonSave, ButtonCancel } from "./Buttons";
+import { ButtonSave, ButtonSecondary } from "./Buttons";
 
 const ModalComponent = ({
   visible,
   titleHeader,
   children,
-  onCancel,
+  onSecondary,
   showDividerHeader,
-  showCancel,
+  showSecondary,
   showSave,
   showFooter,
   showHeader,
@@ -22,23 +21,25 @@ const ModalComponent = ({
   styleHeader,
   styleContent,
   styleButtonSave,
-  styleButtonCancel,
+  styleButtonSecondary,
   typeButtonSave,
-  typeButtonCancel,
+  typeButtonSecondary,
   titleButtonSave,
-  titleButtonCancel,
+  titleButtonSecondary,
   closable,
   modalProps,
   ...otherProps
 }) => {
   const navigate = useNavigate();
-  const handleCancel = () => {
-    if (onCancel) {
-      return onCancel();
+  const handleSecondary = () => {
+    if (onSecondary) {
+      return onSecondary();
     }
 
     return navigate(-1);
   };
+
+  const handleBack = () => navigate(-1);
 
   return (
     <Modal
@@ -56,13 +57,13 @@ const ModalComponent = ({
                 {...otherProps}
               />
             )}
-            {showCancel && (
-              <ButtonCancel
+            {showSecondary && (
+              <ButtonSecondary
                 key={2}
-                onCancel={handleCancel}
-                styleButtonCancel={styleButtonCancel}
-                typeButtonCancel={typeButtonCancel}
-                titleButtonCancel={titleButtonCancel}
+                onSecondary={handleSecondary}
+                styleButtonSecondary={styleButtonSecondary}
+                typeButtonSecondary={typeButtonSecondary}
+                titleButtonSecondary={titleButtonSecondary}
                 {...otherProps}
               />
             )}
@@ -77,16 +78,14 @@ const ModalComponent = ({
           </div>
         )
       }
-      onCancel={handleCancel}
+      onCancel={() => handleBack()}
       width={getSizeByParam(otherProps).width}
       style={styleModal}
       closable={closable}
       maskTransitionName=""
       {...modalProps}
     >
-      <Content style={{ ...styles.content, ...styleContent }}>
-        {children}
-      </Content>
+      <Content style={styleContent}>{children}</Content>
     </Modal>
   );
 };
@@ -96,17 +95,17 @@ ModalComponent.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(["small", "medium", "large"]),
   typeButtonSave: PropTypes.string,
-  typeButtonCancel: PropTypes.string,
+  typeButtonSecondary: PropTypes.string,
   titleHeader: PropTypes.string,
   titleButtonSave: PropTypes.string,
-  titleButtonCancel: PropTypes.string,
+  titleButtonSecondary: PropTypes.string,
   showDividerHeader: PropTypes.bool,
   showFooter: PropTypes.bool,
-  showCancel: PropTypes.bool,
+  showSecondary: PropTypes.bool,
   showSave: PropTypes.bool,
   showHeader: PropTypes.bool,
   onSave: PropTypes.func,
-  onCancel: PropTypes.func,
+  onSecondary: PropTypes.func,
   closable: PropTypes.bool,
   history: PropTypes.objectOf(PropTypes.func),
   styleModal: PropTypes.objectOf(
@@ -124,7 +123,7 @@ ModalComponent.propTypes = {
   styleButtonSave: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ),
-  styleButtonCancel: PropTypes.objectOf(
+  styleButtonSecondary: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ),
 };
@@ -133,11 +132,11 @@ ModalComponent.defaultProps = {
   visible: true,
   size: "small",
   typeButtonSave: "add",
-  typeButtonCancel: "link",
+  typeButtonSecondary: "link",
   titleButtonSave: "Salvar",
-  titleButtonCancel: "Cancelar",
+  titleButtonSecondary: "Cancelar",
   showFooter: true,
-  showCancel: true,
+  showSecondary: false,
   showSave: true,
   showHeader: true,
   closable: true,
@@ -146,8 +145,8 @@ ModalComponent.defaultProps = {
   styleHeader: {},
   styleFooter: {},
   styleButtonSave: {},
-  styleButtonCancel: {},
-  onCancel: null,
+  styleButtonSecondary: {},
+  onSecondary: null,
 };
 
 export default ModalComponent;

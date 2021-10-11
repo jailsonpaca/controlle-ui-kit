@@ -8,12 +8,23 @@ export default {
     padding: 6,
     marginTop: 16,
     marginRight: 16,
-    backgroundColor: "#EEF0F8",
     borderRadius: "50%",
+  },
+  content: {
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 };
 
 export const Modal = styled(AntdModal)`
+  & .closeIcon {
+    &:hover {
+      background-color: #eef0f8;
+      -webkit-transition: background-color 300ms linear;
+      -ms-transition: background-color 300ms linear;
+      transition: background-color 300ms linear;
+    }
+  }
   & .ant-modal-content {
     padding: 35px 40px;
     box-shadow: none;

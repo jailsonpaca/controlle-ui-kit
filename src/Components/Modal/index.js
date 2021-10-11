@@ -26,7 +26,9 @@ const ModalComponent = ({
     <Modal
       visible={visible}
       centered
-      closeIcon={<FeatherIcon style={styles.closeIcon} icon="x" />}
+      closeIcon={
+        <FeatherIcon className="closeIcon" style={styles.closeIcon} icon="x" />
+      }
       title={<Header {...otherProps} />}
       footer={<Footer {...otherProps} />}
       onCancel={() => handleBack()}
@@ -36,7 +38,9 @@ const ModalComponent = ({
       maskTransitionName=""
       {...modalProps}
     >
-      <Content style={styleContent}>{children}</Content>
+      <Content style={{ ...styles.content, ...styleContent }}>
+        {children}
+      </Content>
     </Modal>
   );
 };

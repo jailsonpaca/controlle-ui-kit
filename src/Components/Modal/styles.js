@@ -3,10 +3,13 @@ import styled from "styled-components";
 
 export default {
   closeIcon: {
-    width: 24,
-    height: 24,
-    marginTop: 20,
-    marginRight: 20,
+    width: 36,
+    height: 36,
+    padding: 6,
+    marginTop: 16,
+    marginRight: 16,
+    backgroundColor: "#EEF0F8",
+    borderRadius: "50%",
   },
 };
 

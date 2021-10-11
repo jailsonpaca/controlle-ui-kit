@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export default {
   closeIcon: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
   },
   content: {
     paddingTop: 20,

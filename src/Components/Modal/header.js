@@ -1,10 +1,12 @@
 import { Text } from "Components";
-import { Divider } from "./styles";
+import styles, { Divider } from "./styles";
 
 const Header = ({ showHeader, titleHeader, styleHeader, showDividerHeader }) =>
   showHeader && (
     <div style={styleHeader}>
-      <Text.Bold size={20}>{titleHeader}</Text.Bold>
+      <Text.Bold style={styles.title} size={20}>
+        {titleHeader}
+      </Text.Bold>
       {showDividerHeader && <Divider />}
     </div>
   );

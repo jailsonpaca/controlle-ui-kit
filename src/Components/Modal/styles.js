@@ -1,7 +1,11 @@
 import { Divider as AntdDivider, Modal as AntdModal } from "antd";
 import styled from "styled-components";
+import { COLORS } from "styles";
 
 export default {
+  title: {
+    color: COLORS.titleProposal,
+  },
   closeIcon: {
     width: 20,
     height: 20,
@@ -28,7 +32,8 @@ export const Modal = styled(AntdModal)`
       justify-content: center;
     }
     &:hover {
-      background-color: #eef0f8;
+      background-color: ${COLORS.blueAlice};
+      color: ${COLORS.red};
       -webkit-transition: background-color 300ms linear;
       -ms-transition: background-color 300ms linear;
       transition: background-color 300ms linear;

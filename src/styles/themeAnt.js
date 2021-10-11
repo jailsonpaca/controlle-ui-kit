@@ -66,6 +66,7 @@ const theme = {
   "modal-body-padding": "0px 0px 0px 0px",
   "modal-footer-padding-vertical": "0px",
   "modal-footer-padding-horizontal": "0px",
+  "modal-mask-bg": `fade(${COLORS.titleProposal},80%)`,
 
   /* Table */
   "table-header-bg": COLORS.backgroundHover,

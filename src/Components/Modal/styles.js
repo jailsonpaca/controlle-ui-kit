@@ -3,12 +3,8 @@ import styled from "styled-components";
 
 export default {
   closeIcon: {
-    width: 36,
-    height: 36,
-    padding: 6,
-    marginTop: 16,
-    marginRight: 16,
-    borderRadius: "50%",
+    width: 24,
+    height: 24,
   },
   content: {
     paddingTop: 20,
@@ -17,7 +13,20 @@ export default {
 };
 
 export const Modal = styled(AntdModal)`
-  & .closeIcon {
+  & .ant-modal-close {
+    margin: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    .ant-modal-close-x {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     &:hover {
       background-color: #eef0f8;
       -webkit-transition: background-color 300ms linear;

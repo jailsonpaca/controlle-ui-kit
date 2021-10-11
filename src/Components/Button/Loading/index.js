@@ -13,7 +13,8 @@ const isOutlined = ({ type }) => type === "outlined";
 
 const Spinner = styled.div`
   position: absolute;
-  left: 30%;
+  left: calc(50% - 20px);
+  top: 38%;
   width: 100%;
   text-align: center;
   display: flex;

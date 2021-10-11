@@ -25,6 +25,9 @@ export const Opacity = styled.div.withConfig({
   display: flex;
   align-items: center;
   gap: 6px;
+  font-family: ${SEMI_BOLD} !important;
+  font-size: 14px;
+  padding-top: 2px;
 `;
 
 export const Button = styled(AntdButton).withConfig({
@@ -47,8 +50,6 @@ export const Button = styled(AntdButton).withConfig({
     }
     `};
   ${({ disabled }) => disabled && "opacity: 0.2;"}
-  font-family: ${SEMI_BOLD} !important;
-  font-size: 14px;
 `;
 
 export const GreenButton = styled(Button)`

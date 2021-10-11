@@ -57,6 +57,7 @@ const theme = {
   "checkbox-border-width": "1px",
 
   /* Modal */
+  "modal-header-close-size": "46px",
   "modal-close-color": COLORS.darkBlueGrey,
   "modal-content-bg": COLORS.white,
   "modal-header-border-style": "none",

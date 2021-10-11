@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Content } from "Components";
 import { useNavigate } from "react-router-dom";
+import FeatherIcon from "feather-icons-react";
 import Header from "./header";
 import Footer from "./footer";
 import { getSizeByParam } from "./rules";
-import { Modal } from "./styles";
+import styles, { Modal } from "./styles";
 
 const ModalComponent = ({
   size,
@@ -25,6 +26,7 @@ const ModalComponent = ({
     <Modal
       visible={visible}
       centered
+      closeIcon={<FeatherIcon style={styles.closeIcon} icon="x" />}
       title={<Header {...otherProps} />}
       footer={<Footer {...otherProps} />}
       onCancel={() => handleBack()}

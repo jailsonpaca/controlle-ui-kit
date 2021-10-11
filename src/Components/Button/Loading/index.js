@@ -13,15 +13,14 @@ const isOutlined = ({ type }) => type === "outlined";
 
 const Spinner = styled.div`
   position: absolute;
-  left: calc(50% - 20px);
-  top: 38%;
-  width: 100%;
+  left: calc(50% - 14px);
+  top: 40%;
   text-align: center;
   display: flex;
-  gap: 5px;
+  gap: 4px;
   > div {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     ${(p) =>
       isOutlined(p) ? "background-color: #444;" : "background-color: #fff;"}
     border-radius: 100%;

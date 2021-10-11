@@ -16,6 +16,7 @@ export const Icon = styled(FeatherIcon).withConfig({
   ${({ size }) =>
     size === "small" ? "width:15px; height:15px;" : "width:18px; height:18px;"}
   stroke-width:3px;
+  margin-top: -2px;
 `;
 
 export const Opacity = styled.div.withConfig({
@@ -27,11 +28,13 @@ export const Opacity = styled.div.withConfig({
   gap: 6px;
   font-family: ${SEMI_BOLD} !important;
   font-size: 14px;
+  padding-top: 2px;
 `;
 
 export const Button = styled(AntdButton).withConfig({
   shouldForwardProp: (prop) => !["icon", "loading"].includes(prop),
 })`
+  ${(p) => isOutlined(p) && `background-color:transparent;`};
   position: relative;
   border-radius: 4px;
   &.ant-btn:not(.ant-btn-text):hover,

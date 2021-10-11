@@ -13,6 +13,7 @@ export default {
 export const Modal = styled(AntdModal)`
   & .ant-modal-content {
     padding: 35px 40px;
+    box-shadow: none;
   }
 `;
 

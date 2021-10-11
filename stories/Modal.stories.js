@@ -15,13 +15,6 @@ const Template = (args) => (
   </MemoryRouter>
 );
 
-export const Small = Template.bind({});
-
-Small.args = {
-  titleHeader: "Componente Modal",
-  size: "small",
-};
-
 export const Medium = Template.bind({});
 
 Medium.args = {
